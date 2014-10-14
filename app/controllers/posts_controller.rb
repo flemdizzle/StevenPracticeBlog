@@ -7,6 +7,10 @@ class PostsController < ApplicationController
     @posts = Post.new.front_page
   end
 
+  def drafts
+    @drafts = Post.new.draft_page
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
