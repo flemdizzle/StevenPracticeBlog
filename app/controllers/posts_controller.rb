@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.last(10).reverse
+    @posts = Post.new.front_page
   end
 
   # GET /posts/1
