@@ -16,8 +16,11 @@
 </p>
 
 <% @post.comments.each do |com| %>
-   <td><%= com.name %></td>
-   <td><%= com.comment %></td>
+   <%= div_for com do %>
+      <td><b><%= com.name %></b></td><br>
+      <td>Comment:</td>
+      <td><%= com.comment %></td>
+   <% end %>
 <% end %>
 
 <%= render 'comments/form' %>
