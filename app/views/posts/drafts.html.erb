@@ -13,17 +13,18 @@
   <tbody>
     <% @drafts.each do |draft| %>
       <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= post.published_at %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= draft.title %></td>
+        <td><%= draft.body %></td>
+        <td><%= draft.published_at %></td>
+        <td><%= link_to 'Publish', posts_path %></td>
+        <td><%= link_to 'Edit', edit_post_path(draft) %></td>
+        <td><%= link_to 'Destroy', draft, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<%= link_to 'Home', posts_path %>
 
-<%= link_to 'New Post', new_post_path %>
+<br>
