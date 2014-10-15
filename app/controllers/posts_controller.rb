@@ -4,16 +4,17 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.new.front_page
+    @posts = Post.front_page
   end
 
   def drafts
-    @drafts = Post.new.draft_page
+    @drafts = Post.draft_page
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @comment = Comment.new
   end
 
   # GET /posts/new
