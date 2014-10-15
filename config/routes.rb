@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'drafts', to: 'posts#drafts'
 
+  put 'toggle', to: 'posts#toggle_draft'
+
   root 'posts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

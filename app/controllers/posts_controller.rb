@@ -65,6 +65,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def toggle_draft
+    @post = Post.find(params[:format])
+    @post.update(draft: false, published_at: Time.now)
+    redirect_to posts_path
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

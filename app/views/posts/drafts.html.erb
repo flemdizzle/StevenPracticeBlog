@@ -16,7 +16,7 @@
         <td><%= draft.title %></td>
         <td><%= draft.body %></td>
         <td><%= draft.published_at %></td>
-        <td><%= link_to 'Publish', posts_path %></td>
+        <td><%= link_to 'Publish', toggle_path(draft), method: :put %></td>
         <td><%= link_to 'Edit', edit_post_path(draft) %></td>
         <td><%= link_to 'Destroy', draft, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
