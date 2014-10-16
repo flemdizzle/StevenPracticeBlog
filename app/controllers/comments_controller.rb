@@ -3,12 +3,11 @@ class CommentsController < ApplicationController
     def create
       @post = Post.find(params[:post_id])
       @comment = @post.comments.new(comment_params)
-
       respond_to do |format|
           if @comment.save
             format.html { redirect_to @post, notice: 'Comment was successfully created.' }
           else
-            format.html  { redirect_to @post, notice: 'Comment was not successfully created.' }
+            format.html  { redirect_to @post, notice: "#{@comment.errors.full_messages.each}" }
           end
       end
     end
