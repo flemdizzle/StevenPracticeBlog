@@ -1,5 +1,5 @@
 <h1>Listing Posts</h1>
-
+<%= render 'search' %>
 <table>
   <thead>
     <tr>
@@ -19,7 +19,7 @@
         <td><%= post.published_at %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, remote: true, class: "destroy" %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, class: "destroy" %></td>
       </tr>
       <% end %>
     <% end %>

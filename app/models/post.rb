@@ -6,7 +6,13 @@ class Post < ActiveRecord::Base
    scope :front_page, -> {order(:published_at).where("draft = 'false'").last(10).reverse}
    scope :draft_page, -> {where("draft = true").reverse}
 
+
    def create_draft_first
       self.draft = true
    end
+
+   def self.search(q)
+      where('body LIKE ? OR title LIKE ?', "%#{q}%", "%#{q}%") 
+   end
+
 end

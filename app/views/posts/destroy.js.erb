@@ -1,4 +1,3 @@
-console.log('Sup');
-if (typeof jQuery != 'undefined') {
-   console.log('jQuery is loaded!')
-}
+console.log('#<%= dom_id(@post) %>');
+element = document.getElementById('#<%= dom_id(@post) %>');
+element.style.color="#ff0000";

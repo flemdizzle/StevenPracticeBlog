@@ -1,0 +1,28 @@
+<h1>Listing Search</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Published at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @search.each do |s| %>
+      <%= div_for s do %>
+      <tr>
+        <td><%= s.title %></td>
+        <td><%= s.body %></td>
+        <td><%= s.published_at %></td>
+        <td><%= link_to 'Show', s %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', posts_path %>

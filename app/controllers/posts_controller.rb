@@ -73,6 +73,11 @@ class PostsController < ApplicationController
     @post.update(draft: false, published_at: Time.now)
     redirect_to posts_path
   end
+
+  def search
+    @search = Post.search(params[:q])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
