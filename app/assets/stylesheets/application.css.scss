@@ -13,7 +13,31 @@
  *= require_tree .
  *= require_self
  */
-body {
-   background-color: #66CD00;
-   font-weight: bold;
+
+@import "bootstrap.scss";
+
+header {
+   @extend .navbar; 
+   @extend .navbar-inverse;
+
+   a{
+      @extend .navbar-brand;
+   }
+   ul{
+      @extend .navbar-nav;
+      @extend .navbar-right;
+   }
 }
+body {
+   background-color: green;
+}
+
+tr{
+   @extend .row;
+
+    td {
+      @extend .col-xs-6;
+      color: red;
+   }
+}
+
