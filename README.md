@@ -1,0 +1,1 @@
+[ ![Codeship Status for flemdizzle/StevenPracticeBlog](https://www.codeship.io/projects/9b5334d0-3ada-0132-1487-36d6ba2126d8/status)](https://www.codeship.io/projects/42485)
