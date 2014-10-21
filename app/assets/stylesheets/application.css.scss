@@ -28,16 +28,44 @@ header {
       @extend .navbar-right;
    }
 }
-body {
-   background-color: green;
+body{
+   background-image: image-url('green_background.jpg');
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
 }
 
 tr{
-   @extend .row;
-
+   font-size: 40px;
     td {
-      @extend .col-xs-6;
-      color: red;
+      font-size: 30px;
+      line-height: 40px;
+      color: white;
+      text-decoration: none;
+      a{
+         color: #8FD8D8;
+      }
+      a:hover{
+         color: #8FD8D8;
+         background-color: transparent;
+      }
+      a:visited{
+         color: #8FD8D8;
+      }
+      } 
+
+}
+.buttons{
+   @extend .btn-group;
+   a{
+      @extend .btn;
+   }
+   a:hover{
+      color: white;
    }
 }
-
+.btn{
+   background-color: black;
+}
