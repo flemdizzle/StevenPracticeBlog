@@ -1,4 +1,10 @@
 require 'rails_helper'
+require 'database_cleaner'
+
+DatabaseCleaner.strategy = :truncation
+
+# then, whenever you need to clean the DB
+DatabaseCleaner.clean
 
 def test_post_one
     Post.create!(
@@ -58,7 +64,14 @@ feature "manage Posts" do
       expect(current_path).to eq(posts_path)
       expect(page).to have_content(/New Post/)
       expect(page).to have_content(/New post body/)
-
    end
 
+   scenario "user can delete a post" do
+      t1 = test_post_one
+      visit drafts_path
+      click_on 'Publish'
+      expect(current_path).to eq(posts_path)
+      click_on 'Destroy'
+      expect(current_path).to eq(posts_path)
+   end
 end
