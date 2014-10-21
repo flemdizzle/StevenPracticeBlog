@@ -57,7 +57,7 @@ feature "manage Posts" do
       click_on 'Publish'
       expect(current_path).to eq(posts_path)
       click_on 'Edit'
-      expect(current_path).to eq(edit_post_path(Post.last.id))
+      expect(current_path).to eq(edit_post_path(Post.last))
       fill_in 'Title', with: 'New Post'
       fill_in 'Body', with: 'New post body'
       click_on 'Update Post'
@@ -73,5 +73,6 @@ feature "manage Posts" do
       expect(current_path).to eq(posts_path)
       click_on 'Destroy'
       expect(current_path).to eq(posts_path)
+      expect(page).to_not have_content(/Post One/)
    end
 end
