@@ -1,0 +1,19 @@
+<% if @login.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@login.errors.count, "error") %> prohibited this user from being loggedin:</h2>
+
+      <ul>
+      <% @login.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<%= form_tag(@login, method: "get") do %>
+   <%= label_tag(:email, "Email:") %>
+   <%= text_field_tag(:email) %>
+   <%= label_tag(:password, "Password:") %>
+   <%= text_field_tag(:password) %>
+   <%= submit_tag("Login") %>
+<% end %>

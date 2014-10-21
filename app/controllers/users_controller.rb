@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  require 'pry'
   # GET /users
   # GET /users.json
   def index
@@ -24,14 +23,13 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = User.new(params)
 
     respond_to do |format|
       if @user.save
         format.html { redirect_to posts_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
-        binding.pry
         render :new
       end
     end
@@ -62,6 +60,15 @@ class UsersController < ApplicationController
   end
 
   def welcome
+  end
+
+  def authenticate
+    @login = User.search(params)
+    if @login
+      redirect_to posts_path
+    else
+      render :authenticate, error: "Invalid Password"
+    end
   end
 
   private

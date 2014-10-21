@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
          Digest::SHA1.hexdigest(token.to_s)
       end
 
+      def self.search(info)
+      end
       private
       #creates new session token for the user
       def create_remember_token

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   resources :users
   get '/signup', to: 'users#new'
+  get '/signin', to: 'users#authenticate'
 
   resources :posts do
     resources :comments, only: [:create]
