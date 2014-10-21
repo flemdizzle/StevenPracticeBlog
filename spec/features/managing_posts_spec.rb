@@ -44,4 +44,21 @@ feature "manage Posts" do
       expect(page).to have_content(/New Post/)
       expect(page).to have_content(/New post body/)
    end
+
+   scenario "users can edit posts" do
+      t1 = test_post_one
+      visit drafts_path
+      click_on 'Publish'
+      expect(current_path).to eq(posts_path)
+      click_on 'Edit'
+      expect(current_path).to eq(edit_post_path(Post.last.id))
+      fill_in 'Title', with: 'New Post'
+      fill_in 'Body', with: 'New post body'
+      click_on 'Update Post'
+      expect(current_path).to eq(posts_path)
+      expect(page).to have_content(/New Post/)
+      expect(page).to have_content(/New post body/)
+
+   end
+
 end
