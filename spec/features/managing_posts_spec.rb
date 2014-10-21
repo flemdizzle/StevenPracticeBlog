@@ -32,4 +32,16 @@ feature "manage Posts" do
       expect(current_path).to eq(new_post_path)
       expect(page).to have_css('form')
    end
+
+   scenario "New post for works" do
+      visit new_post_path
+      fill_in 'Title', with: 'New Post'
+      fill_in 'Body', with: 'New post body'
+      click_on 'Create Post'
+      expect(current_path).to eq(drafts_path)
+      click_on 'Publish'
+      expect(current_path).to eq(posts_path)
+      expect(page).to have_content(/New Post/)
+      expect(page).to have_content(/New post body/)
+   end
 end
