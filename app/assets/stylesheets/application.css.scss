@@ -38,12 +38,6 @@ body{
 }
 
 tr{
-   font-size: 40px;
-    td {
-      font-size: 30px;
-      line-height: 40px;
-      color: white;
-      text-decoration: none;
       a{
          color: #8FD8D8;
       }
@@ -54,8 +48,6 @@ tr{
       a:visited{
          color: #8FD8D8;
       }
-      } 
-
 }
 .buttons{
    @extend .btn-group;
@@ -68,4 +60,19 @@ tr{
 }
 .btn{
    background-color: black;
+}
+table{
+  @extend .container;
+}
+thead{
+  @extend .row;
+}
+th{
+  @extend .col-lg-2;
+}
+tbody{
+  @extend .row;
+}
+td{
+  @extend .col-lg-2;
 }

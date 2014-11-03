@@ -1,0 +1,9 @@
+table{
+   @extend .container;
+}
+tbody{
+   @extend .row;
+}
+td{
+   @extend .col-lg-2;
+}
